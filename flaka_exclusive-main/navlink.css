@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+.navbar .nav-item .active {
+    border-bottom: #efc8b1;
+    border-width: 2px;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    border-style: solid;
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .navbar .nav-item .nav-link {
+    color: #8a6626; 
+   
+  }
+
+  .navbar {
+    box-shadow: 0 3px 5px rgba(138, 102, 38, 0.5);
+  }
+
+  .container {
+    box-shadow: 0 3px 5px rgba(138, 102, 38, 0.5);
+}
+@media (max-width: 768px) {
+  .carousel-item h5 {
+    font-size: 1.2rem; 
+  }
+
+  .first_col {
+    position: initial;
+    left: 0 !important;
+}
+
+.sec_col {
+    order: 1 !important;
+}
+}
+
+/* FAQs */
+.container {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.shapes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.shapes li {
+  position: absolute;
+  bottom: -280px;
+  z-index: -1;
+  animation: animate 8s linear infinite;
+  font-size: 120px; 
+  color: #efc8b1; 
+  font-weight: bold;
+}
+
+
+.shapes li:nth-child(even) {
+  left: calc(70px * var(--i));
+  animation-delay: calc(3s * var(--i));
+  animation-duration: calc(1.1s * var(--i) + 9s);
+}
+
+.shapes li:nth-child(odd) {
+  left: calc(75px * var(--i));
+  animation-delay: calc(1.2s * var(--i));
+  animation-duration: calc(2s * var(--i) + 6s);
+}
+
+.shapes li:nth-child(3n) {
+  animation-delay: calc(1.2s * (21 - var(--i)));
+  animation-duration: calc(1.6s * (21 - var(--i)) + 4s);
+}
+
+.shapes li:not(:nth-child(3n)) {
+  animation-duration: calc(1.2s * var(-i) + 8s);
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-1000px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* about */
+#spinner {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .5s ease-out, visibility 0s linear .5s;
+  z-index: 99999;
+}
+
+#spinner.show {
+  transition: opacity .5s ease-out, visibility 0s linear 0s;
+  visibility: visible;
+  opacity: 1;
+}
+
+/*** Hero Header ***/
+.hero-header {
+  background: linear-gradient(rgba(15, 23, 43, .9), rgba(15, 23, 43, .9)), url(../img/bg-hero.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero-header img {
+  animation: imgRotate 50s linear infinite;
+}
+
+@keyframes imgRotate { 
+  100% { 
+      transform: rotate(360deg); 
+  } 
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: rgba(255, 255, 255, .5);
+}
+
+/*** Section Title ***/
+.section-title {
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::before {
+  position: absolute;
+  content: "";
+  width: 45px;
+  height: 2px;
+  top: 50%;
+  left: -55px;
+  margin-top: -1px;
+  background: var(--primary);
+}
+
+.section-title::after {
+  position: absolute;
+  content: "";
+  width: 45px;
+  height: 2px;
+  top: 50%;
+  right: -55px;
+  margin-top: -1px;
+  background: var(--primary);
+}
+
+.section-title.text-start::before,
+.section-title.text-end::after {
+  display: none;
+}
+
+
+/* gallery */
+.grid-gallery {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-rows: 250px;
+  grid-auto-flow: dense;
+  grid-gap: 20px;
+}
+
+.grid-gallery .grid-item {
+  position: relative;
+  background-color: #efc8b1;
+  overflow: hidden;
+}
+
+.grid-gallery .grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.grid-gallery .grid-item:hover img {
+  transform: scale(1.1);
+}
+
+.grid-gallery .grid-item a {
+  cursor: zoom-in;
+}
+
+.grid-gallery .grid-item:nth-child(3n - 2) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+@media (max-width: 768px) {
+  .grid-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-rows: 250px;
+  }
+
+  .grid-gallery .grid-item:nth-child(3n - 2) {
+    grid-column: unset;
+    grid-row: unset;
+  }
+}
